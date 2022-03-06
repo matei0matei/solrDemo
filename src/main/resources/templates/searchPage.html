@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search IMDB</title>
+</head>
+<body>
+  <form action="#" th:action="@{/search}" th:object="${searchForm}" method="post">
+    <input type="text" th:field="*{query}">
+    <input type="submit">Search movie</input>
+  </form>
+<table>
+  <tr th:each="movie: ${searchForm.result}">
+    <td th:text="${movie.id}" />
+    <td th:text="${movie.title}" />
+    <td th:text="${movie.plot}" />
+  </tr>
+</table>
+</body>
+</html>
